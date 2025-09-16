@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data Collection Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #0056b3;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+            color: #0056b3;
+            padding: 0 10px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .gender-group, .career-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Student Data Collection</h1>
+    <nav>
+        <a href="students.html">View All Students</a>
+    </nav>
+    <form id="studentForm">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth (DOB):</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="gender-group">
+                        <input type="radio" id="male" name="gender" value="Male" required><label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="Other"><label for="other">Other</label>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="caste">Caste:</label>
+                    <input type="text" id="caste" required>
+                </div>
+                <div class="form-group">
+                    <label for="aadharNo">Aadhar No.:</label>
+                    <input type="text" id="aadharNo" pattern="\d{12}" title="12-digit Aadhar number" required>
+                </div>
+                 <div class="form-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" required>
+                </div>
+                 <div class="form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact & Academic Details</legend>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="enrolmentNo">Enrolment No.:</label>
+                    <input type="text" id="enrolmentNo" required>
+                </div>
+                <div class="form-group">
+                    <label for="branch">Branch/Department:</label>
+                    <select id="branch" required>
+                        <option value="">--Select Branch--</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Electronics & Comm.">Electronics & Comm.</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contactNo">Contact No.:</label>
+                    <input type="tel" id="contactNo" pattern="[0-9]{10}" title="10-digit mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label for="altContactNo">Alternate Contact No.:</label>
+                    <input type="tel" id="altContactNo" pattern="[0-9]{10}" title="10-digit mobile number">
+                </div>
+                 <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="homeAddress">Home Address:</label>
+                    <textarea id="homeAddress" rows="3" required></textarea>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Academic Scores</legend>
+             <div class="form-grid">
+                 <div class="form-group">
+                    <label for="passingYear">Passing Year:</label>
+                    <input type="number" id="passingYear" min="2000" max="2099" step="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="ssc">SSC %:</label>
+                    <input type="number" id="ssc" step="0.01" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="hsc">HSC %:</label>
+                    <input type="number" id="hsc" step="0.01" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label for="sem1">Semester 1 %:</label>
+                    <input type="number" id="sem1" step="0.01" min="0" max="100" required>
+                </div>
+                 <div class="form-group">
+                    <label for="sem2">Semester 2 %:</label>
+                    <input type="number" id="sem2" step="0.01" min="0" max="100" required>
+                </div>
+                 <div class="form-group">
+                    <label for="sem3">Semester 3 %:</label>
+                    <input type="number" id="sem3" step="0.01" min="0" max="100" required>
+                </div>
+                 <div class="form-group">
+                    <label for="sem4">Semester 4 %:</label>
+                    <input type="number" id="sem4" step="0.01" min="0" max="100" required>
+                </div>
+                 <div class="form-group">
+                    <label for="sem5">Semester 5 %:</label>
+                    <input type="number" id="sem5" step="0.01" min="0" max="100" required>
+                </div>
+                 <div class="form-group">
+                    <label for="sem6">Semester 6 %:</label>
+                    <input type="number" id="sem6" step="0.01" min="0" max="100" required>
+                </div>
+                 <div class="form-group">
+                    <label for="cgpa">Diploma Final CGPA:</label>
+                    <input type="number" id="cgpa" step="0.01" min="0" max="10" required>
+                </div>
+                 <div class="form-group">
+                    <label for="cpi">Diploma Final CPI / %:</label>
+                    <input type="number" id="cpi" step="0.01" min="0" max="100" required>
+                </div>
+             </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Career Choice</legend>
+            <div class="career-group">
+                 <input type="radio" id="job" name="career" value="Job" required><label for="job">Job</label>
+                 <input type="radio" id="higherStudy" name="career" value="Higher Study"><label for="higherStudy">Higher Study</label>
+                 <input type="radio" id="selfBusiness" name="career" value="Self Business"><label for="selfBusiness">Self Business</label>
+            </div>
+        </fieldset>
+
+        <button type="submit">Submit Data</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('studentForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevents the form from submitting the traditional way
+
+        const studentData = {
+            fullName: document.getElementById('fullName').value,
+            enrolmentNo: document.getElementById('enrolmentNo').value,
+            branch: document.getElementById('branch').value,
+            contactNo: document.getElementById('contactNo').value,
+            altContactNo: document.getElementById('altContactNo').value,
+            homeAddress: document.getElementById('homeAddress').value,
+            email: document.getElementById('email').value,
+            dob: document.getElementById('dob').value,
+            aadharNo: document.getElementById('aadharNo').value,
+            gender: document.querySelector('input[name="gender"]:checked').value,
+            caste: document.getElementById('caste').value,
+            height: document.getElementById('height').value,
+            weight: document.getElementById('weight').value,
+            passingYear: document.getElementById('passingYear').value,
+            ssc: document.getElementById('ssc').value,
+            hsc: document.getElementById('hsc').value,
+            sem1: document.getElementById('sem1').value,
+            sem2: document.getElementById('sem2').value,
+            sem3: document.getElementById('sem3').value,
+            sem4: document.getElementById('sem4').value,
+            sem5: document.getElementById('sem5').value,
+            sem6: document.getElementById('sem6').value,
+            cgpa: document.getElementById('cgpa').value,
+            cpi: document.getElementById('cpi').value,
+            career: document.querySelector('input[name="career"]:checked').value,
+        };
+
+        // Get existing students from localStorage, or create an empty array
+        let students = JSON.parse(localStorage.getItem('students')) || [];
+        
+        // Add the new student data
+        students.push(studentData);
+
+        // Save the updated array back to localStorage
+        localStorage.setItem('students', JSON.stringify(students));
+
+        // Alert the user and redirect to the students page
+        alert('Student data saved successfully!');
+        window.location.href = 'students.html';
+    });
+</script>
+
+</body>
+</html>
